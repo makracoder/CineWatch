@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendations - CineWatch</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-film"></i>
+                <span>CineWatch</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="recommend.html" class="active">Recommend</a>
+                <a href="favorites.html">Favorites</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="recommend-container">
+        <!-- Form Section -->
+        <section class="form-section">
+            <div class="container">
+                <h1>Find Your Perfect Movie</h1>
+                <p class="form-subtitle">Tell us what you're looking for and we'll find the perfect match</p>
+                
+                <form id="recommendForm" class="recommend-form">
+                    <!-- Genres -->
+                    <div class="form-group">
+                        <label>Genres (Optional - Leave blank for mood-based suggestions)</label>
+                        <div class="checkbox-grid">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="genres" value="28">
+                                <span class="checkmark"></span>
+                                Action
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="genres" value="12">
+                                <span class="checkmark"></span>
+                                Adventure
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="genres" value="16">
+                                <span class="checkmark"></span>
+                                Animation
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="genres" value="35">
+                                <span class="checkmark"></span>
+                                Comedy
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="genres" value="80">
+                                <span class="checkmark"></span>
+                                Crime
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="genres" value="99">
+                                <span class="checkmark"></span>
+                                Documentary
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="genres" value="18">
+                                <span class="checkmark"></span>
+                                Drama
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="genres" value="10751">
+                                <span class="checkmark"></span>
+                                Family
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="genres" value="14">
+                                <span class="checkmark"></span>
+                                Fantasy
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="genres" value="36">
+                                <span class="checkmark"></span>
+                                History
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="genres" value="27">
+                                <span class="checkmark"></span>
+                                Horror
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="genres" value="10402">
+                                <span class="checkmark"></span>
+                                Music
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="genres" value="9648">
+                                <span class="checkmark"></span>
+                                Mystery
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="genres" value="10749">
+                                <span class="checkmark"></span>
+                                Romance
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="genres" value="878">
+                                <span class="checkmark"></span>
+                                Science Fiction
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="genres" value="53">
+                                <span class="checkmark"></span>
+                                Thriller
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Release Year -->
+                    <div class="form-group">
+                        <label for="releaseYear">Release Year Range</label>
+                        <select id="releaseYear" name="releaseYear" class="form-select">
+                            <option value="">Doesn't matter</option>
+                            <option value="2020-01-01">After 2020</option>
+                            <option value="2010-01-01">After 2010</option>
+                            <option value="2000-01-01">After 2000</option>
+                            <option value="1990-01-01">After 1990</option>
+                            <option value="1970-01-01">After 1970</option>
+                        </select>
+                    </div>
+
+                    <!-- Mood -->
+                    <div class="form-group">
+                        <label>Mood</label>
+                        <div class="radio-group">
+                            <label class="radio-item">
+                                <input type="radio" name="mood" value="happy">
+                                <span class="radiomark"></span>
+                                <i class="fas fa-smile"></i>
+                                Happy
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="mood" value="sad">
+                                <span class="radiomark"></span>
+                                <i class="fas fa-sad-tear"></i>
+                                Sad
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="mood" value="neutral">
+                                <span class="radiomark"></span>
+                                <i class="fas fa-meh"></i>
+                                Neutral
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- With Whom -->
+                    <div class="form-group">
+                        <label for="watchingWith">With whom watching</label>
+                        <select id="watchingWith" name="watchingWith" class="form-select">
+                            <option value="">Select option</option>
+                            <option value="alone">Alone</option>
+                            <option value="friends">Friends</option>
+                            <option value="family">Family</option>
+                            <option value="partner">Partner</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-search"></i>
+                        Find Movies
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results-section" id="resultsSection" style="display: none;">
+            <div class="container">
+                <div class="results-header">
+                    <h2>Recommended Movies</h2>
+                    <div class="results-controls">
+                        <button class="clear-btn" id="clearResults">
+                            <i class="fas fa-times"></i>
+                            Clear Results
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Finding perfect movies for you...</p>
+                </div>
+
+                <div class="movies-grid" id="moviesGrid"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Movie Modal -->
+    <div class="modal" id="movieModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <div class="modal-poster">
+                    <img id="modalPoster" src="" alt="Movie Poster">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalTitle"></h2>
+                    <div class="modal-meta">
+                        <span id="modalYear"></span>
+                        <span id="modalRating"></span>
+                        <span id="modalRuntime"></span>
+                    </div>
+                    <p id="modalOverview"></p>
+                    <div class="modal-actions">
+                        <button class="trailer-btn" id="trailerBtn">
+                            <i class="fab fa-youtube"></i>
+                            Watch Trailer
+                        </button>
+                        <button class="favorite-btn" id="modalFavoriteBtn">
+                            <i class="fas fa-heart"></i>
+                            Add to Favorites
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
