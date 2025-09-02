@@ -1,3 +1,4 @@
+
 // TMDB API Configuration
 // Replace 'YOUR_TMDB_API_KEY' with your actual TMDB API key
 const TMDB_API_KEY = 'ba2441b0df9de8d624a58bf663c44cab';
@@ -50,7 +51,9 @@ function toggleTheme() {
 function updateThemeIcon() {
     const isDark = document.body.classList.contains('dark-mode');
     const icon = themeToggle.querySelector('i');
-    icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+    if (icon) {
+        icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+    }
 }
 
 // Event Listeners
@@ -94,13 +97,12 @@ function setupEventListeners() {
 // Form Handling
 async function handleFormSubmission(e) {
     e.preventDefault();
-    
 
     const formData = new FormData(recommendForm);
     const filters = {
         genres: formData.getAll('genres'),
         releaseYear: formData.get('releaseYear'),
-        mood: formData.get('mood'), // now a single value
+        mood: formData.get('mood'),
         watchingWith: formData.get('watchingWith')
     };
 
@@ -127,7 +129,6 @@ async function handleFormSubmission(e) {
 }
 
 function validateForm(filters) {
-
     // Check if a mood is selected
     if (!filters.mood) {
         alert('Please select a mood.');
