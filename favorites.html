@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorites - CineWatch</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-film"></i>
+                <span>CineWatch</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="recommend.html">Recommend</a>
+                <a href="favorites.html" class="active">Favorites</a>
+            </div>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="favorites-container">
+        <div class="container">
+            <div class="favorites-header">
+                <h1>My Favorite Movies</h1>
+                <p class="favorites-subtitle">Your personal collection of beloved films</p>
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="emptyState">
+                <i class="fas fa-heart"></i>
+                <h2>No favorites yet</h2>
+                <p>Start exploring movies and add your favorites to see them here!</p>
+                <a href="recommend.html" class="cta-button">
+                    <i class="fas fa-search"></i>
+                    Find Movies
+                </a>
+            </div>
+
+            <!-- Favorites Grid -->
+            <div class="favorites-content" id="favoritesContent" style="display: none;">
+                <div class="favorites-controls">
+                    <div class="favorites-count">
+                        <span id="favoritesCount">0</span> movies saved
+                    </div>
+                    <button class="clear-all-btn" id="clearAllFavorites">
+                        <i class="fas fa-trash"></i>
+                        Clear All
+                    </button>
+                </div>
+                
+                <div class="movies-grid" id="favoritesGrid"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Movie Modal -->
+    <div class="modal" id="movieModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <div class="modal-poster">
+                    <img id="modalPoster" src="" alt="Movie Poster">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalTitle"></h2>
+                    <div class="modal-meta">
+                        <span id="modalYear"></span>
+                        <span id="modalRating"></span>
+                        <span id="modalRuntime"></span>
+                    </div>
+                    <p id="modalOverview"></p>
+                    <div class="modal-actions">
+                        <button class="trailer-btn" id="trailerBtn">
+                            <i class="fab fa-youtube"></i>
+                            Watch Trailer
+                        </button>
+                        <button class="remove-favorite-btn" id="modalRemoveBtn">
+                            <i class="fas fa-trash"></i>
+                            Remove from Favorites
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
